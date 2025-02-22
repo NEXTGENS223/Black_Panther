@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda - Black Panther</title>
+    <style>
+        :root {
+            --purple-primary: #8B5CF6;
+            --purple-dark: #6D28D9;
+            --purple-light: #A78BFA;
+            --bg-dark: #111111;
+            --bg-darker: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-darker);
+            color: white;
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--purple-primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        nav .logo {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        nav .brand {
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .store-container {
+            padding: 120px 2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .store-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--purple-primary);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .product-card {
+            background: rgba(17, 17, 17, 0.8);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .product-details {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            color: var(--purple-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1.25rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .product-description {
+            margin-bottom: 1.5rem;
+            color: #e5e5e5;
+        }
+
+        .whatsapp-button {
+            background-color: #25D366;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .whatsapp-button:hover {
+            background-color: #128C7E;
+        }
+
+        footer {
+            background: var(--bg-dark);
+            padding: 2rem 1rem;
+            text-align: center;
+            border-top: 2px solid var(--purple-primary);
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav .nav-links {
+                width: 100%;
+                display: none;
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 0;
+            }
+
+            nav .nav-links.active {
+                display: flex;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <img src="bp.jpg" alt="Logo" class="logo"/>
+            <span class="brand">Black Panther</span>
+        </div>
+        <div class="menu-toggle">☰</div>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="quienes_somos.html">Quienes Somos</a>
+            <a href="index.html#portfolio">Productos</a>
+            <a href="index.html#instructions">Instrucciones</a>
+            <a href="pagos.html">Metodos de pagos</a>
+            <a href="tienda.html">Comprar</a>
+        </div>
+    </nav>
+
+    <div class="store-container">
+        <h1 class="store-title">Nuestros Productos</h1>
+        
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="/api/placeholder/400/300" alt="Michelada savage" class="product-image">
+                <div class="product-details">
+                    <h2 class="product-title">Michelada savage</h2>
+                    <p class="product-price">$XX.XX COP</p>
+                    <p class="product-description">La michelada tradicional con nuestro toque especial Black Panther.</p>
+                    <a href="https://wa.me/+XXXXXXXXXXX?text=Hola,%20me%20interesa%20la%20Michelada%20Savage" 
+                       class="whatsapp-button" target="_blank">
+                        Comprar por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="/api/placeholder/400/300" alt="Michelada Ocean" class="product-image">
+                <div class="product-details">
+                    <h2 class="product-title">Michelada Ocean</h2>
+                    <p class="product-price">$XX.XX COP</p>
+                    <p class="product-description">Nuestra michelada premium con ingredientes selectos.</p>
+                    <a href="https://wa.me/+573176003232?text=Hola,%20me%20interesa%20la%20Michelada%20Ocean" 
+                       class="whatsapp-button" target="_blank">
+                        Comprar por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="/api/placeholder/400/300" alt="Michelada Wakanda" class="product-image">
+                <div class="product-details">
+                    <h2 class="product-title">Michelada wakanda</h2>
+                    <p class="product-price">$XX.XX COP</p>
+                    <p class="product-description">La más completa de nuestras micheladas, perfecta para los conocedores.</p>
+                    <a href="https://wa.me/+573176003232?text=Hola,%20me%20interesa%20la%20Michelada%20Wakanda" 
+                       class="whatsapp-button" target="_blank">
+                        Comprar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Black Panther Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
