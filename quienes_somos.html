@@ -24,6 +24,9 @@
             background-color: var(--bg-darker);
             color: white;
             line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         nav {
@@ -35,10 +38,6 @@
             z-index: 1000;
             backdrop-filter: blur(10px);
             border-bottom: 2px solid var(--purple-primary);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
         }
 
         nav .logo-container {
@@ -61,6 +60,7 @@
         nav .nav-links {
             display: flex;
             gap: 2rem;
+            margin-top: 1rem;
         }
 
         nav a {
@@ -97,6 +97,7 @@
             padding: 120px 2rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            flex: 1;
         }
 
         .team-title {
@@ -108,9 +109,12 @@
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             padding: 1rem;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .team-member {
@@ -118,6 +122,7 @@
             border-radius: 10px;
             overflow: hidden;
             transition: transform 0.3s ease;
+            height: 100%;
         }
 
         .team-member:hover {
@@ -174,18 +179,26 @@
             padding: 2rem 1rem;
             text-align: center;
             border-top: 2px solid var(--purple-primary);
+            margin-top: auto;
         }
 
         @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
             .menu-toggle {
                 display: block;
+                position: absolute;
+                right: 1rem;
+                top: 1rem;
             }
 
             nav .nav-links {
-                width: 100%;
                 display: none;
+                width: 100%;
                 flex-direction: column;
-                gap: 1rem;
+                align-items: center;
                 padding: 1rem 0;
             }
 
@@ -196,18 +209,31 @@
             .team-grid {
                 grid-template-columns: 1fr;
                 padding: 0.5rem;
+                gap: 1.5rem;
             }
 
             .about-banner {
                 padding: 2rem 1rem;
             }
+
+            .team-container {
+                padding: 100px 1rem 2rem;
+            }
+        }
+
+        @media (min-width: 769px) {
+            nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            nav .nav-links {
+                margin-top: 0;
+            }
         }
     </style>
 </head>
-<audio id="musica" loop>
-    <source src="AFRO BROS x FINEST SNO - 18 PLUS (Official Video).mp3" type="audio/mpeg">
-</audio>
-
 <body>
     <nav>
         <div class="logo-container">
@@ -226,47 +252,64 @@
     </nav>
 
     <div class="team-container">
-        <h1 class="team-title">Nuestro Equipo</h1>
-        
-  
-        </div> <div class="team-member">
-            <img src="dabir.jpg" alt="Dabir" class="member-image">
-            <div class="member-details">
-                <h2 class="member-name">Dabir </h2>
-                <p class="member-role">CEO / CHEF</p>
-                <p class="member-description">El chef </p>
-            </div>
-        </div>
-
-        <div class="team-member">
-            <img src="carlos1.jpg" alt="Ccarlos" class="member-image">
-            <div class="member-details">
-                <h2 class="member-name">Carlos Contreras</h2>
-                <p class="member-role">CEO / Developer y marketing</p>
-                <p class="member-description">Encargado de marketing y desarrollo web</p>
-            </div>
-
-
-
+        <h1 class="team-title">Nuestro Equipo<br>haz click aqui</h1>
+        <div class="team-grid">
             <div class="team-member">
-                <img src="keiner.png" alt="Nombre del Miembro 2" class="member-image">
+                <img src="dabir.jpg" alt="Dabir" class="member-image">
                 <div class="member-details">
-                    <h2 class="member-name">Keiner Monterroza</h2>
-                    <p class="member-role">CEO/ CHEF</p>
-                    <p class="member-description">Otro chef</p>
+                    <h2 class="member-name">Dabir</h2>
+                    <p class="member-role">CEO / CHEF</p>
+                    <p class="member-description">El es, el que cocina y es admin</p>
                 </div>
             </div>
 
             <div class="team-member">
-                <img src="luis.png" alt="Nombre del Miembro 3" class="member-image">
+                <img src="carlos1.jpg" alt="Carlos" class="member-image">
+                <div class="member-details">
+                    <h2 class="member-name">Carlos Contreras</h2>
+                    <p class="member-role">CEO / Developer y marketing</p>
+                    <p class="member-description">Encargado de marketing y desarrollo web</p>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <img src="keiner.png" alt="Keiner" class="member-image">
+                <div class="member-details">
+                    <h2 class="member-name">Keiner Monterroza</h2>
+                    <p class="member-role">CEO / CHEF</p>
+                    <p class="member-description">Quizo ser admin pero el solo sirve en la cocina (cocina rico)</p>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <img src="Mateo.jpg" alt="Mateo" class="member-image">
+                <div class="member-details">
+                    <h2 class="member-name">Mateo Cavadia</h2>
+                    <p class="member-role">CEO / AGENTE DE VENTAS</p>
+                    <p class="member-description">Tambien quizo ser admin pero no lo dejamos</p>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <img src="https://demofree.sirv.com/nope-not-here.jpgg" alt="Ana" class="member-image">
+                <div class="member-details">
+                    <h2 class="member-name">Ana Rojas</h2>
+                    <p class="member-role">CEO / AGENTE DE VENTAS</p>
+                    <p class="member-description">Solo quiere dinero</p>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <img src="luis.png" alt="Luis" class="member-image">
                 <div class="member-details">
                     <h2 class="member-name">Luis Miranda</h2>
                     <p class="member-role">CEO / REPRESENTANTE DE VENTAS</p>
-                    <p class="member-description">El vende </p>
+                    <p class="member-description">El, es el que vende</p>
                 </div>
             </div>
         </div>
     </div>
+
 
     <div class="about-banner">
         <div class="banner-content">
@@ -279,14 +322,19 @@
         <p>© 2025 Black Panther Todos los derechos reservados.</p>
     </footer>
 
+    <audio id="musica" loop>
+        <source src="AFRO BROS x FINEST SNO - 18 PLUS (Official Video).mp3" type="audio/mpeg">
+    </audio>
+
     <script>
         document.querySelector('.menu-toggle').addEventListener('click', function() {
             this.classList.toggle('active');
             document.querySelector('.nav-links').classList.toggle('active');
         });
+        
         document.addEventListener("click", function() {
-        document.getElementById("musica").play();
-    }, { once: true });
+            document.getElementById("musica").play();
+        }, { once: true });
     </script>
 </body>
 </html>
